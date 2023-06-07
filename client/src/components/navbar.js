@@ -57,7 +57,7 @@ const Navbar = ({isVerified, currentUser}) => {
                 <NavLink to='/'>
                     <img className="logo" src={server.host+server.image+"bitebuddy.png"} alt="logo"/>
                 </NavLink>
-                <ul className='navlist'>
+                <ul className='navlist' id={openBurger ? "" : "hidden"}>
                     {
                         isVerified ? 
                         <>

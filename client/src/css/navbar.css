@@ -47,7 +47,9 @@
     opacity: .8;
     border-bottom: 0 solid #F97B22;
 }
-
+.fa-bars {
+    display: none;
+}
 .navlist button {
     border: none;
     background-color: #F97B22;
