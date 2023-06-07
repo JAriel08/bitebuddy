@@ -170,13 +170,12 @@ app.get('/partners', (request, response) => {
     })
 })
 
-app.post('/upload', upload.single('image'), (req,res) => {
+app.post('/upload', [upload.single('image'), verifyUser], (req,res) => {
     const image = req.file.filename;
-    let id = 0
-    const sqlGetUser = "SELECT * from users where isLogin = '1'"
+    const sqlGetUser = "SELECT * from users where email = ?"
     const sqlUploadImage = "UPDATE users SET image = ? WHERE id = ?"
 
-    db.query(sqlGetUser, (err, result) => {
+    db.query(sqlGetUser, req.email, (err, result) => {
         if(err) {
             console.log(err)
         }
@@ -192,36 +191,36 @@ app.post('/upload', upload.single('image'), (req,res) => {
     })
 })
 
+app.post('/reservation', verifyUser, (request, response) => {
+    const sqlGetUser = "SELECT * from users WHERE email = ?"
 
-app.get('/user/login-status', (request, response) => {
-    const sqlCheckLoggedInUser = `SELECT * from users WHERE isLogin = '1'`;
-    db.query(sqlCheckLoggedInUser, (err, result) => {
+    db.query(sqlGetUser, request.email, (err, result) => {
         if(err) {
-            console.log(err)
+            return response.json({Message: 'You are not logged in'})
         }
-        else {
-            response.send(result)
+
+        if(result.length > 0) {
+            const id = result[0].id
+            const partnerID = request.body.restaurantID
+            const partnerName = request.body.restaurant
+            const table = request.body.tableNo
+            const time = request.body.selectedTime
+            const date = request.body.selectedDate
+
+            const sqlReserve = "INSERT into reservations (user_id, restaurant_id, restaurant_name, table_no, time, date, status) VALUES (?, ?, ?, ?, ?, ?, 'Confirmed')"
+            db.query(sqlReserve, [id, partnerID, partnerName, table, time, date], (err, result) => {
+                if(err) {
+                    return response.json({Message: 'Error'})
+                }
+                else {
+                    return response.json({Status: 'Success'})
+                }
+            })
         }
     })
-})
+    
 
-app.post('/reservation', (request, response) => {
-    const id = request.body.userid
-    const partnerID = request.body.restaurantID
-    const partnerName = request.body.restaurant
-    const table = request.body.tableNo
-    const time = request.body.selectedTime
-    const date = request.body.selectedDate
-
-    const sqlReserve = "INSERT into reservations (user_id, restaurant_id, table_no, time, date, status) VALUES (?, ?, ?, ?, ?, 'Confirmed')"
-    db.query(sqlReserve, [id, partnerID, table, time, date], (err, result) => {
-        if(err) {
-            console.log(err)
-        }
-        else {
-            response.send(result)
-        }
-    })
+    
 })
 
 app.post('/reservations', (request, response) => {
