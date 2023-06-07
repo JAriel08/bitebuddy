@@ -12,6 +12,8 @@ const Navbar = ({isVerified, currentUser}) => {
     const [ openLoginForm, setOpenLoginForm ] = useState(false)
     const [ userDropdown, setUserDropdown ] = useState(false)
     const [ openSignupForm, setOpenSignupForm ] = useState(false)
+    const [ openBurger, setOpenBurger ] = useState(false);
+
     const user = currentUser
 
     const server = {
@@ -137,6 +139,10 @@ const Navbar = ({isVerified, currentUser}) => {
                         </>
                     }
                 </ul>
+                <span className="fa-bars" onClick={() => {
+                                setOpenBurger(!openBurger)
+                            }}>{openBurger ? <FaTimes/> : <FaBars/>}
+                </span>
             </div>
         </header>
     )
