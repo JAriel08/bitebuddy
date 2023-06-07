@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/bitebuddy/static/css/main.946ed275.css",
-    "main.js": "/bitebuddy/static/js/main.9e5ab5fc.js",
+    "main.css": "/bitebuddy/static/css/main.8af80dda.css",
+    "main.js": "/bitebuddy/static/js/main.efff0fc9.js",
     "static/js/787.01cfcb08.chunk.js": "/bitebuddy/static/js/787.01cfcb08.chunk.js",
     "static/media/about-us.jpg": "/bitebuddy/static/media/about-us.474f8508cf4376d3d876.jpg",
     "static/media/forbidden.jpg": "/bitebuddy/static/media/forbidden.42a08ef169b9c31c3e62.jpg",
@@ -14,12 +14,12 @@
     "static/media/image 2.png": "/bitebuddy/static/media/image 2.699b581bf44f8bfb4e43.png",
     "static/media/bitebuddy.png": "/bitebuddy/static/media/bitebuddy.21dcba35f731a95c0bb4.png",
     "index.html": "/bitebuddy/index.html",
-    "main.946ed275.css.map": "/bitebuddy/static/css/main.946ed275.css.map",
-    "main.9e5ab5fc.js.map": "/bitebuddy/static/js/main.9e5ab5fc.js.map",
+    "main.8af80dda.css.map": "/bitebuddy/static/css/main.8af80dda.css.map",
+    "main.efff0fc9.js.map": "/bitebuddy/static/js/main.efff0fc9.js.map",
     "787.01cfcb08.chunk.js.map": "/bitebuddy/static/js/787.01cfcb08.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.946ed275.css",
-    "static/js/main.9e5ab5fc.js"
+    "static/css/main.8af80dda.css",
+    "static/js/main.efff0fc9.js"
   ]
 }
