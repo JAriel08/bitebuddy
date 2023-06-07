@@ -4,7 +4,7 @@ import LoginForm from "./loginForm";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import SignupForm from "./singupForm";
-import { FaSortDown, FaUserCircle, FaUserAlt, FaUpload, FaEdit, FaBell } from 'react-icons/fa';
+import { FaSortDown, FaUserCircle, FaUserAlt, FaUpload, FaEdit, FaBell, FaTimes, FaBars } from 'react-icons/fa';
 import { FiSettings, FiLogOut } from 'react-icons/fi';
 
 
